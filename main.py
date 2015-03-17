@@ -8,7 +8,7 @@ OUTPUT_PATH_FILE = ['/Users/Xesc/Desktop/HappyRes.csv', '/Users/Xesc/Desktop/Sad
             '/Users/Xesc/Desktop/AggressiveRes.csv', '/Users/Xesc/Desktop/Non-AggresiveRes.csv']
 
 FEATURES = [
-            #('danceability', 'Danceability'),
+            ('danceability', 'Danceability'),
             ('beatsLoudness', 'Loudness', 'LoudnessBandRatio'),
             ]
 

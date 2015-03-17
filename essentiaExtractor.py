@@ -27,10 +27,9 @@ def danceability(audioVec):
 
 
 def beatsLoudness(audioVec):
-    pdb.set_trace()
     inst = essentia.standard.BeatsLoudness()
     res = inst(audioVec)
-
+    essentia.run(inst)
     return res
 
 
