@@ -15,15 +15,23 @@ def filterroot(mainroot):
 
 
 def audioLoader(file):
-    inst = essentia.standard.MonoLoader(filename = file)
+    inst = essentia.standard.MonoLoader(filename=file)
     res = inst()
     return res
 
 
-def danceable(audioVec):
+def danceability(audioVec):
     inst = essentia.standard.Danceability()
     danc = inst(audioVec)
     return danc
+
+
+def beatsLoudness(audioVec):
+    pdb.set_trace()
+    inst = essentia.standard.BeatsLoudness()
+    res = inst(audioVec)
+
+    return res
 
 
 def writeRes(outfile_name, header, body):
