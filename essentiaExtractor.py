@@ -53,13 +53,17 @@ def rms(audioVec):
     rms_res = inst(audioVec)
     return rms_res
 
+
 def bpmhistogramdescriptors(_):
     global bpm_intervals
     inst = essentia.standard.BpmHistogramDescriptors()
-    bpmhis_res = inst(bpm_intervals)
-    return bpmhis_res
+    result = inst(bpm_intervals)
+    return result[0:3]
 
-
+def dynamiccomplexity(audioVec):
+    inst = essentia.standard.DynamicComplexity()
+    res1, res2 = inst(audioVec)
+    return res1,res2
 
 
 def writeRes(outfile_name, header, body):
