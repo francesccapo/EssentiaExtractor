@@ -2,8 +2,12 @@ import essentia
 import essentia.standard
 import os
 import csv
+import numpy as np
 import pdb
 
+
+
+ticks = []
 
 def filterroot(mainroot):
     res = []
@@ -26,12 +30,22 @@ def danceability(audioVec):
     return danc
 
 
-def beatsLoudness(audioVec):
-    inst = essentia.standard.BeatsLoudness()
-    res = inst(audioVec)
-    essentia.run(inst)
-    return res
+def rhythm2013(audioVec):
+    global ticks
+    inst = essentia.standard.RhythmExtractor2013()
+    bpm,ticks,_,_,_ = inst(audioVec)
+    return bpm
 
+
+def beatsLoudness(audioVec):
+    global ticks
+    inst = essentia.standard.BeatsLoudness(beats=ticks)
+    _,loudnessBandRatio = inst(audioVec)
+    loudnessBandRatio = np.array(loudnessBandRatio)
+    average_loudnessBandRatio = np.mean(loudnessBandRatio,0)
+    return average_loudnessBandRatio
+
+#def rythm
 
 def writeRes(outfile_name, header, body):
     outfile = open(outfile_name,'wb')

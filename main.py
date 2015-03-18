@@ -9,7 +9,12 @@ OUTPUT_PATH_FILE = ['/Users/Xesc/Desktop/HappyRes.csv', '/Users/Xesc/Desktop/Sad
 
 FEATURES = [
             ('danceability', 'Danceability'),
-            ('beatsLoudness', 'Loudness', 'LoudnessBandRatio'),
+            ('rhythm2013','bpm'),
+            ('beatsLoudness', 'Vector_LoudnessBandRatio_average'), #Dependencies: rhythm2013
+            #('rms','rms'),
+            #('bpmhistogramdescriptors','firstPeakBmp','firstPeakWeight','firstPeakSpread','secondPeakBmp','secondPeakWeight','secondPeakSpread',)
+            #('rythmdescriptors','beats_position','bpm','bpm_estimates','bpm_intervals','firstPeakBmp','firstPeakSpread','firstPeakWeight','secondPeakBmp','secondPeakSpread','secondPeakWeight')
+            #('dynamiccomplexity','dynamiccomplexity','loudness')
             ]
 
 for folder in range(len(INPUT_PATH)):
@@ -21,7 +26,6 @@ for folder in range(len(INPUT_PATH)):
         for feat in range(FEATURES.__len__()):
             callfunc = getattr(ee, FEATURES[feat][0])
             resfeat = ''
-            pdb.set_trace()
             resfeat = callfunc(audiovector)
 
             if type(resfeat) is float:
@@ -29,7 +33,9 @@ for folder in range(len(INPUT_PATH)):
             else:
                 for numres in range(len(resfeat)):
                     res.append(resfeat[numres])
+
         body.append(res)
+
     header = ['File name']
     pdb.set_trace()
     for feat in range(FEATURES.__len__()):
