@@ -36,8 +36,6 @@ for folder in range(len(INPUT_PATH)):
                     res.append(resfeat[numres])
 
         body.append(res)
-        if file == 4:
-            break
     header = ['File name']
     for feat in range(len(FEATURES)):
         for headitem in range(len(FEATURES[feat])-1):
