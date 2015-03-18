@@ -10,7 +10,7 @@ OUTPUT_PATH_FILE = ['/Users/Xesc/Desktop/HappyRes.csv', '/Users/Xesc/Desktop/Sad
 FEATURES = [
             ('danceability', 'Danceability'),
             ('rhythm2013','bpm'),
-            ('beatsLoudness', 'LoudnessBandRatio_average (20-150)','LoudnessBandRatio_average (150-400)','LoudnessBandRatio_average (400-3200)','LoudnessBandRatio_average (3200-7000)','LoudnessBandRatio_average (7000-22000)'), #Dependencies: rhythm2013
+            ('beatsLoudness', 'LoudnessBandRatio_average_(20_150)','LoudnessBandRatio_average_(150_400)','LoudnessBandRatio_average_(400_3200)','LoudnessBandRatio_average_(3200_7000)','LoudnessBandRatio_average_(7000_22000)'), #Dependencies: rhythm2013
             ('rms', 'rms'),
             ('bpmhistogramdescriptors','firstPeakBmp','firstPeakWeight','firstPeakSpread'),
             ('dynamiccomplexity','dynamiccomplexity','loudness')
