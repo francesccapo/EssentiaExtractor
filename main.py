@@ -11,8 +11,8 @@ FEATURES = [
             ('danceability', 'Danceability'),
             ('rhythm2013','bpm'),
             ('beatsLoudness', 'LoudnessBandRatio_average (20-150)','LoudnessBandRatio_average (150-400)','LoudnessBandRatio_average (400-3200)','LoudnessBandRatio_average (3200-7000)','LoudnessBandRatio_average (7000-22000)'), #Dependencies: rhythm2013
-            #('rms','rms'),
-            #('bpmhistogramdescriptors','firstPeakBmp','firstPeakWeight','firstPeakSpread','secondPeakBmp','secondPeakWeight','secondPeakSpread',)
+            ('rms', 'rms'),
+            ('bpmhistogramdescriptors','firstPeakBmp','firstPeakWeight','firstPeakSpread','secondPeakBmp','secondPeakWeight','secondPeakSpread',)
             #('rythmdescriptors','beats_position','bpm','bpm_estimates','bpm_intervals','firstPeakBmp','firstPeakSpread','firstPeakWeight','secondPeakBmp','secondPeakSpread','secondPeakWeight')
             #('dynamiccomplexity','dynamiccomplexity','loudness')
             ]

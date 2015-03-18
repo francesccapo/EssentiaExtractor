@@ -8,6 +8,7 @@ import pdb
 
 
 ticks = []
+bpm_intervals = []
 
 def filterroot(mainroot):
     res = []
@@ -32,8 +33,9 @@ def danceability(audioVec):
 
 def rhythm2013(audioVec):
     global ticks
+    global bpm_intervals
     inst = essentia.standard.RhythmExtractor2013()
-    bpm,ticks,_,_,_ = inst(audioVec)
+    bpm,ticks,_,_,bpm_intervals = inst(audioVec)
     return bpm
 
 
@@ -45,7 +47,20 @@ def beatsLoudness(audioVec):
     average_loudnessBandRatio = np.mean(loudnessBandRatio,0)
     return average_loudnessBandRatio
 
-#def rythm
+
+def rms(audioVec):
+    inst = essentia.standard.RMS()
+    rms_res = inst(audioVec)
+    return rms_res
+
+def bpmhistogramdescriptors(_):
+    global bpm_intervals
+    inst = essentia.standard.BpmHistogramDescriptors()
+    bpmhis_res = inst(bpm_intervals)
+    return bpmhis_res
+
+
+
 
 def writeRes(outfile_name, header, body):
     outfile = open(outfile_name,'wb')
