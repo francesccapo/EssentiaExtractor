@@ -10,7 +10,7 @@ OUTPUT_PATH_FILE = ['/Users/Xesc/Desktop/HappyRes.csv', '/Users/Xesc/Desktop/Sad
 FEATURES = [
             ('danceability', 'Danceability'),
             ('rhythm2013','bpm'),
-            ('beatsLoudness', 'Vector_LoudnessBandRatio_average'), #Dependencies: rhythm2013
+            ('beatsLoudness', 'LoudnessBandRatio_average (20-150)','LoudnessBandRatio_average (150-400)','LoudnessBandRatio_average (400-3200)','LoudnessBandRatio_average (3200-7000)','LoudnessBandRatio_average (7000-22000)'), #Dependencies: rhythm2013
             #('rms','rms'),
             #('bpmhistogramdescriptors','firstPeakBmp','firstPeakWeight','firstPeakSpread','secondPeakBmp','secondPeakWeight','secondPeakSpread',)
             #('rythmdescriptors','beats_position','bpm','bpm_estimates','bpm_intervals','firstPeakBmp','firstPeakSpread','firstPeakWeight','secondPeakBmp','secondPeakSpread','secondPeakWeight')
@@ -21,6 +21,7 @@ for folder in range(len(INPUT_PATH)):
     files = ee.filterroot(INPUT_PATH[folder])
     body = []
     for file in range(len(files)):
+        print 'Extracting features from ' + files[file]
         audiovector = ee.audioLoader(files[file])
         res = [files[file]]
         for feat in range(FEATURES.__len__()):
@@ -35,10 +36,10 @@ for folder in range(len(INPUT_PATH)):
                     res.append(resfeat[numres])
 
         body.append(res)
-
+        if file == 4:
+            break
     header = ['File name']
-    pdb.set_trace()
-    for feat in range(FEATURES.__len__()):
-        for headitem in range(len(1,stop=FEATURES[feat])):
-            header.append(FEATURES[feat][headitem])
+    for feat in range(len(FEATURES)):
+        for headitem in range(len(FEATURES[feat])-1):
+            header.append(FEATURES[feat][headitem+1])
     ee.writeRes(OUTPUT_PATH_FILE[folder], header, body)

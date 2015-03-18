@@ -54,6 +54,6 @@ def writeRes(outfile_name, header, body):
     wr.writerows(body)
     outfile.close()
 
-    print 'Process finished'
+    print 'Writing file finished'
 
 
