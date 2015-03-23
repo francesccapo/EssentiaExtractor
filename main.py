@@ -2,10 +2,8 @@ import essentiaExtractor as ee
 import pdb
 
 
-INPUT_PATH = ['/Users/Xesc/Desktop/DATASET_LAB5/Happy/', '/Users/Xesc/Desktop/DATASET_LAB5/Sad/',
-        '/Users/Xesc/Desktop/DATASET_LAB5/Aggressive/', '/Users/Xesc/Desktop/DATASET_LAB5/Non-Aggressive/']
-OUTPUT_PATH_FILE = ['/Users/Xesc/Desktop/HappyRes.csv', '/Users/Xesc/Desktop/SadRes.csv',
-            '/Users/Xesc/Desktop/AggressiveRes.csv', '/Users/Xesc/Desktop/Non-AggresiveRes.csv']
+INPUT_PATH = ['/Users/Xesc/Desktop/DATASET_LAB5/Happy/', '/Users/Xesc/Desktop/DATASET_LAB5/Sad/']
+OUTPUT_PATH_FILE = ['/Users/Xesc/Desktop/HappyRes.csv', '/Users/Xesc/Desktop/SadRes.csv']
 
 FEATURES = [
             ('danceability', 'Danceability'),
